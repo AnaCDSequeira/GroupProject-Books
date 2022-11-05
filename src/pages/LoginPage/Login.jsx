@@ -31,6 +31,7 @@ const Login = () => {
 
       if (json.message === "OK") {
         alert(`Login sucessefully! Welcome ${json.data.name}`);
+        localStorage.setItem(json.data.email, json.data.token);
       } else {
         alert(json.errors);
       }
