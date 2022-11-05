@@ -1,6 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = (props) => {
+  const { loggedIn, setLoggedIn } = props;
+
+  const navigate = useNavigate();
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -32,6 +36,9 @@ const Login = () => {
       if (json.message === "OK") {
         alert(`Login sucessefully! Welcome ${json.data.name}`);
         localStorage.setItem(json.data.email, json.data.token);
+        setLoggedIn(true);
+        const direct = () => navigate("/");
+        direct();
       } else {
         alert(json.errors);
       }
