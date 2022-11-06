@@ -7,8 +7,8 @@ const BooksContainer = styled.main`
   gap: 10px;
 `;
 
-const Main = () => {
-  const [books, setBooks] = useState([]);
+const Main = (props) => {
+  const { books, setBooks } = props;
 
   useEffect(() => {
     async function fetchBooks() {
@@ -41,7 +41,7 @@ const BookImage = styled.img`
 function Book(props) {
   return (
     <>
-      <div>
+      <div key={props.title}>
         <BookImage src={props.image} alt={props.title} />
         <div>{props.title}</div>
       </div>

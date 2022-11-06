@@ -24,6 +24,8 @@ const DivTitle = styled.div`
 const Header = (props) => {
   const { loggedIn } = props;
 
+  const isLogged = loggedIn.isLoggedIn;
+
   const navigate = useNavigate();
   function handleClick(path) {
     const direct = () => navigate(path);
@@ -39,15 +41,15 @@ const Header = (props) => {
         <DivMenu>
           <a
             href="#"
-            onClick={() => handleClick(loggedIn ? "Profile" : "Login")}
+            onClick={() => handleClick(isLogged ? "Profile" : "Login")}
           >
-            {loggedIn ? "Profile" : "Login"}
+            {isLogged ? "Profile" : "Login"}
           </a>
           <a
             href="#"
-            onClick={() => handleClick(loggedIn ? "LogOut" : "Register")}
+            onClick={() => handleClick(isLogged ? "LogOut" : "Register")}
           >
-            {loggedIn ? "Log Out" : "Register"}
+            {isLogged ? "Log Out" : "Register"}
           </a>
         </DivMenu>
       </NavBar>

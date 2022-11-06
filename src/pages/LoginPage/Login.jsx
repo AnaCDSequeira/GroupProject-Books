@@ -29,14 +29,13 @@ const Login = (props) => {
         }
       );
       const text = await response.text();
-      console.log(text);
 
       const json = JSON.parse(text);
 
       if (json.message === "OK") {
         alert(`Login sucessefully! Welcome ${json.data.name}`);
         localStorage.setItem(json.data.email, json.data.token);
-        setLoggedIn(true);
+        setLoggedIn({ isLoggedIn: true, email: json.data.email });
         const direct = () => navigate("/");
         direct();
       } else {
