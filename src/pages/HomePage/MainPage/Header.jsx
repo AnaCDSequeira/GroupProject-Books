@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 const NavBar = styled.nav`
   display: flex;
@@ -46,7 +45,7 @@ const Header = (props) => {
           </a>
           <a
             href="#"
-            onClick={() => handleClick(loggedIn ? "Log Out" : "Register")}
+            onClick={() => handleClick(loggedIn ? "LogOut" : "Register")}
           >
             {loggedIn ? "Log Out" : "Register"}
           </a>
