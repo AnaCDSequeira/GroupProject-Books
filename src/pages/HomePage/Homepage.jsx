@@ -1,12 +1,12 @@
 import { Header } from "./MainPage/Header.jsx";
-import { Main } from "./MainPage/MainPage.jsx";
+import { Main } from "./MainPage/Mainpage.jsx";
 
 const HomePage = (props) => {
-  const { loggedIn, setLoggedIn } = props;
+  const { loggedIn } = props;
 
   return (
     <>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Header loggedIn={loggedIn} />
       <Main />
     </>
   );
