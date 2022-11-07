@@ -44,6 +44,7 @@ const BookPage = (props) => {
             console.log(json);
         }
         deleteBook();
+        alert("Book Delete Sucessfully");
         navigate("/");
     };
 
@@ -122,14 +123,15 @@ const BookPage = (props) => {
 
     return (
         <>
-            <Link to="/">POPO</Link>
-            <Header loggedIn={loggedIn} />
+            <Link to="/">HomePage</Link>
+
             <h1>BookPage</h1>
-            <h1>{bookData.title}</h1>
-            <h1>{bookData.id}</h1>
-            <h1>{bookData.description}</h1>
-            <h1>{bookData.year}</h1>
             <img src={bookData.book_cover} alt="" />
+            <div>
+                <h2>{bookData.id}</h2>
+                <p>{bookData.description}</p>
+                <h2>{bookData.year}</h2>
+            </div>
             <button
                 onClick={handleDeleteBook}
                 disabled={
