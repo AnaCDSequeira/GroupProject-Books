@@ -4,7 +4,6 @@ const ProfilePage = (props) => {
 
   const { loggedIn } = props;
   const [user, setUser] = useState({});
-  const [isLoaded, setIsLoaded] = useState(false)
 
   const myHeaders = new Headers();
 

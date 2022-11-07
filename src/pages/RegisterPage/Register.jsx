@@ -11,10 +11,11 @@ const Register = () => {
       e.target.userImage.value,
     ];
 
-    let myHeaders = new Headers();
+    console.log(userData)
+    const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
-    let raw = JSON.stringify({
+    const raw = JSON.stringify({
       email: userData[1],
       password: userData[2],
       name: userData[0],
@@ -35,6 +36,7 @@ const Register = () => {
       console.log(text);
 
       const json = JSON.parse(text);
+      console.log(json)
 
       if (json.message === "OK") {
         alert("Registered sucessefully!");
