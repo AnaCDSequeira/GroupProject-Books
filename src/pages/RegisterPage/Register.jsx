@@ -45,6 +45,7 @@ const Register = () => {
       }
     }
     createUser();
+    
   }
 
   return (
