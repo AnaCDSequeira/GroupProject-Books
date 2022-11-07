@@ -44,6 +44,7 @@ const BookPage = (props) => {
             console.log(json);
         }
         deleteBook();
+        alert("Book has been deleted with success!")
         navigate("/");
     };
 
