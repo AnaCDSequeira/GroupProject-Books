@@ -58,7 +58,6 @@ const Login = (props) => {
         </label>
         <button type="submit">Login</button>
       </form>
-      <Link to={"/"}>Back to HomePage</Link>
     </>
   );
 };

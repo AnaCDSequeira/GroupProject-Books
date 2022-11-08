@@ -31,7 +31,7 @@ const BookPage = (props) => {
         const requestOptions = {
             method: "DELETE",
             headers: {
-                "Authorization": localStorage.getItem(loggedIn.email),
+                Authorization: localStorage.getItem(loggedIn.email),
             },
             redirect: "follow",
         };
@@ -124,8 +124,6 @@ const BookPage = (props) => {
 
     return (
         <>
-            <Link to="/">HomePage</Link>
-
             <h1>BookPage</h1>
             <img src={bookData.book_cover} alt="" />
             <div>
