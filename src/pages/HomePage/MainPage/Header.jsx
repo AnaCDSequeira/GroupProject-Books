@@ -22,11 +22,11 @@ const DivTitle = styled.div`
 `;
 
 const HeaderLink = styled(Link)`
-text-decoration: none;
-`
+    text-decoration: none;
+    color: Brown;
+`;
 
 const Header = (props) => {
-
     const { loggedIn } = props;
     const isLogged = loggedIn.isLoggedIn;
 
