@@ -1,6 +1,5 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Header } from "../../components/Header.jsx";
 
 const BookPage = (props) => {
     const { loggedIn } = props;
