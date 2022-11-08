@@ -13,7 +13,7 @@ const NavBar = styled.nav`
 `;
 const DivMenu = styled.div`
     display: flex;
-    justify-contente: flex-end;
+    justify-content: flex-end;
     gap: 40px;
     margin-right: 30px;
 `;

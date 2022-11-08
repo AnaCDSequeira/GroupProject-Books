@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 function LogOutPage(props) {
   const { loggedIn, setLoggedIn } = props;
   setLoggedIn(false);
+  localStorage.clear()
   console.log(loggedIn);
 
   const navigate = useNavigate();

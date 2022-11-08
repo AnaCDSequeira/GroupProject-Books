@@ -1,37 +1,39 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 
 const ProfilePage = (props) => {
 
-  const { loggedIn } = props;
-  const [user, setUser] = useState({});
-  const [isLoaded, setIsLoaded] = useState(false)
-
-    const myHeaders = new Headers();
-
-    console.log(loggedIn.email);
-    myHeaders.append("Authorization", localStorage.getItem(loggedIn.email));
-
-    var requestOptions = {
-        method: "GET",
-        headers: myHeaders,
-        redirect: "follow",
-    };
+    const { loggedIn } = props;
+    const [user, setUser] = useState();
+   
+    const token = localStorage.getItem(localStorage.key(0)); // erro esta no email
 
     useEffect(() => {
-        async function getUser() {
-            const response = await fetch(
-                "https://cors-anywhere.herokuapp.com/ancient-temple-61124.herokuapp.com/api/user/profile",
-                requestOptions
-            );
-
-            const json = await response.json();
-            const data = json.data;
-            setUser(data);
-        }
         getUser();
     }, []);
 
-    console.log(user);
+
+    async function getUser() {
+
+        const requestOptions = {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token || '',
+            },
+            redirect: "follow",
+        };
+
+        console.log(requestOptions);
+
+        const response = await fetch(
+            "https://cors-anywhere.herokuapp.com/ancient-temple-61124.herokuapp.com/api/user/profile",
+            requestOptions
+        );
+
+        const json = await response.json();
+        const data = json.data;
+        setUser(data);
+    }
 
     function handleSubmitUser(e) {
         e.preventDefault();
@@ -109,20 +111,20 @@ const ProfilePage = (props) => {
                 "https://cors-anywhere.herokuapp.com/ancient-temple-61124.herokuapp.com/api/book/",
                 requestOptions
             );
+
             const json = await response.json();
-            console.log(json);
         }
 
         addBook();
         alert("Added Book Sucessfully!");
         console.log(bookDetails);
     }
-    console.log(user);
+
 
     return (
         <>
             <div>
-                <img src={user.profile_picture} />
+                <img src={user?.profile_picture} />
             </div>
             <div>
                 <form onSubmit={handleSubmitUser}>
