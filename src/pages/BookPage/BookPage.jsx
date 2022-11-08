@@ -30,7 +30,9 @@ const BookPage = (props) => {
 
         const requestOptions = {
             method: "DELETE",
-            headers: myHeaders,
+            headers: {
+                "Authorization": localStorage.getItem(loggedIn.email),
+            },
             redirect: "follow",
         };
 

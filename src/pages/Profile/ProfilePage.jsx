@@ -1,24 +1,21 @@
-import { useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 const ProfilePage = (props) => {
-
     const { loggedIn } = props;
     const [user, setUser] = useState();
-   
-    const token = localStorage.getItem(localStorage.key(0)); // erro esta no email
+
+    const token = localStorage.getItem(localStorage.key(0));
 
     useEffect(() => {
         getUser();
     }, []);
 
-
     async function getUser() {
-
         const requestOptions = {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
-                "Authorization": token || '',
+                "Authorization": token,
             },
             redirect: "follow",
         };
@@ -113,13 +110,17 @@ const ProfilePage = (props) => {
             );
 
             const json = await response.json();
+            if (json.message === "OK") {
+                alert("Registered sucessefully!");
+            } else {
+                alert(json.errors);
+            }
         }
 
         addBook();
-        alert("Added Book Sucessfully!");
-        console.log(bookDetails);
+        // alert("Added Book Sucessfully!");
+        // console.log(bookDetails);
     }
-
 
     return (
         <>
