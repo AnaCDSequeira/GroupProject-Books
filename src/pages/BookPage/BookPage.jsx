@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Header } from "../HomePage/MainPage/Header.jsx";
+import { Header } from "../../components/Header.jsx";
 
 const BookPage = (props) => {
     const { loggedIn } = props;
@@ -44,7 +44,7 @@ const BookPage = (props) => {
             console.log(json);
         }
         deleteBook();
-        alert("Book has been deleted with success!")
+        alert("Book has been deleted with success!");
         navigate("/");
     };
 

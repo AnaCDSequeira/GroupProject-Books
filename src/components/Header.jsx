@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 const NavBar = styled.nav`
     display: flex;
@@ -30,6 +30,9 @@ const Header = (props) => {
     const { loggedIn } = props;
     const isLogged = loggedIn.isLoggedIn;
 
+    const location = useLocation();
+    console.log(location.pathname);
+
     return (
         <header>
             <NavBar>
@@ -37,12 +40,22 @@ const Header = (props) => {
                     <h1>BookStore</h1>
                 </DivTitle>
                 <DivMenu>
-                    <HeaderLink to={isLogged ? "profile" : "login"}>
-                        {isLogged ? "Profile" : "Login"}
-                    </HeaderLink>
-                    <HeaderLink to={isLogged ? "logout" : "register"}>
-                        {isLogged ? "Log Out" : "Register"}
-                    </HeaderLink>
+                    {location.pathname !== "/" ? (
+                        <HeaderLink to="/">Home Page</HeaderLink>
+                    ) : null}
+
+                    {location.pathname === "/profile" ||
+                    location.pathname === "/login" ? null : (
+                        <HeaderLink to={isLogged ? "profile" : "login"}>
+                            {isLogged ? "Profile" : "Login"}
+                        </HeaderLink>
+                    )}
+
+                    {location.pathname === "/register" ? null : (
+                        <HeaderLink to={isLogged ? "logout" : "register"}>
+                            {isLogged ? "Log Out" : "Register"}
+                        </HeaderLink>
+                    )}
                 </DivMenu>
             </NavBar>
         </header>

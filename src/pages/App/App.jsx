@@ -6,6 +6,8 @@ import { LogOutPage } from "../LogOut/LogOutPage.jsx";
 import { ProfilePage } from "../Profile/ProfilePage.jsx";
 import { useState } from "react";
 import { BookPage } from "../BookPage/BookPage.jsx";
+import {Header} from "../../components//Header.jsx"
+import {Footer} from "../../components/Footer.jsx"
 
 function App() {
     const [loggedIn, setLoggedIn] = useState({
@@ -17,6 +19,7 @@ function App() {
     return (
         <>
             <BrowserRouter>
+                <Header loggedIn={ loggedIn }/>
                 <Routes>
                     <Route
                         path="/"
@@ -46,7 +49,6 @@ function App() {
                         path="logout"
                         element={
                             <LogOutPage
-                                loggedIn={loggedIn}
                                 setLoggedIn={setLoggedIn}
                             />
                         }
@@ -55,6 +57,7 @@ function App() {
                         <Route path=":bookId" element={<BookPage />} />
                     </Route>
                 </Routes>
+                <Footer/>
             </BrowserRouter>
         </>
     );
