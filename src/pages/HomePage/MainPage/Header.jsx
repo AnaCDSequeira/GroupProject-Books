@@ -21,6 +21,9 @@ const DivTitle = styled.div`
     margin-left: 30px;
 `;
 
+const HeaderLink = styled(Link)`
+text-decoration: none;
+`
 
 const Header = (props) => {
 
@@ -34,12 +37,12 @@ const Header = (props) => {
                     <h1>BookStore</h1>
                 </DivTitle>
                 <DivMenu>
-                    <Link style={{textDecoration: "none"}} to={isLogged ? "profile" : "login"}>
+                    <HeaderLink to={isLogged ? "profile" : "login"}>
                         {isLogged ? "Profile" : "Login"}
-                    </Link>
-                    <Link style={{textDecoration: "none"}} to={isLogged ? "logout" : "register"}>
+                    </HeaderLink>
+                    <HeaderLink to={isLogged ? "logout" : "register"}>
                         {isLogged ? "Log Out" : "Register"}
-                    </Link>
+                    </HeaderLink>
                 </DivMenu>
             </NavBar>
         </header>
