@@ -22,15 +22,9 @@ const DivTitle = styled.div`
 `;
 
 const Header = (props) => {
+
     const { loggedIn } = props;
-
     const isLogged = loggedIn.isLoggedIn;
-
-    const navigate = useNavigate();
-    function handleClick(path) {
-        const direct = () => navigate(path);
-        direct();
-    }
 
     return (
         <header>
@@ -39,22 +33,12 @@ const Header = (props) => {
                     <h1>BookStore</h1>
                 </DivTitle>
                 <DivMenu>
-                    <a
-                        href="#"
-                        onClick={() =>
-                            handleClick(isLogged ? "profile" : "login")
-                        }
-                    >
+                    <Link to={isLogged ? "profile" : "login"}>
                         {isLogged ? "Profile" : "Login"}
-                    </a>
-                    <a
-                        href="#"
-                        onClick={() =>
-                            handleClick(isLogged ? "logOut" : "register")
-                        }
-                    >
+                    </Link>
+                    <Link to={isLogged ? "logout" : "register"}>
                         {isLogged ? "Log Out" : "Register"}
-                    </a>
+                    </Link>
                 </DivMenu>
             </NavBar>
         </header>
