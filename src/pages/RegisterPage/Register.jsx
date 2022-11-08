@@ -2,24 +2,14 @@ import { Link } from "react-router-dom";
 
 const Register = () => {
   function handleSubmit(e) {
+
     e.preventDefault();
 
-    const userData = [
-      e.target.userName.value,
-      e.target.userEmail.value,
-      e.target.userPassword.value,
-      e.target.userImage.value,
-    ];
-
-    console.log(userData)
-    const myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    const raw = JSON.stringify({
-      email: userData[1],
-      password: userData[2],
-      name: userData[0],
-      profile_picture: userData[3],
+    const userData = JSON.stringify({
+      email: e.target.userEmail.value,
+      password: e.target.userPassword.value,
+      name: e.target.userName.value,
+      profile_picture: e.target.userImage.value,
     });
 
     async function createUser() {
@@ -27,16 +17,17 @@ const Register = () => {
         "https://ancient-temple-61124.herokuapp.com/api/auth/register",
         {
           method: "POST",
-          headers: myHeaders,
-          body: raw,
+          headers: {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+          },
+          body: userData,
           redirect: "follow",
         }
       );
-      const text = await response.text();
-      console.log(text);
 
+      const text = await response.text();
       const json = JSON.parse(text);
-      console.log(json)
 
       if (json.message === "OK") {
         alert("Registered sucessefully!");

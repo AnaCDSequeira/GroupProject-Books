@@ -8,14 +8,9 @@ const Login = (props) => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    const userData = [e.target.userEmail.value, e.target.userPassword.value];
-
-    let myHeaders = new Headers();
-    myHeaders.append("Content-Type", "application/json");
-
-    let raw = JSON.stringify({
-      email: userData[0],
-      password: userData[1],
+    let userData = JSON.stringify({
+      email: e.target.userEmail.value,
+      password: e.target.userPassword.value,
     });
 
     async function loginUser() {
@@ -23,13 +18,15 @@ const Login = (props) => {
         "https://ancient-temple-61124.herokuapp.com/api/auth/login",
         {
           method: "POST",
-          headers: myHeaders,
-          body: raw,
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: userData,
           redirect: "follow",
         }
       );
-      const text = await response.text();
 
+      const text = await response.text();
       const json = JSON.parse(text);
 
       if (json.message === "OK") {
@@ -38,10 +35,12 @@ const Login = (props) => {
         setLoggedIn({ isLoggedIn: true, email: json.data.email });
         const direct = () => navigate("/");
         direct();
+
       } else {
         alert(json.errors);
       }
     }
+    
     loginUser();
     
   }
