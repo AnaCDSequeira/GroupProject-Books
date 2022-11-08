@@ -65,7 +65,7 @@ const Register = () => {
         </label>
         <label>
           Image
-          <input name="userImage"></input>
+          <input type="url" name="userImage"></input>
         </label>
         <button type="submit">Register</button>
       </form>
