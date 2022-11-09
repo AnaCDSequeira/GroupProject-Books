@@ -285,7 +285,6 @@ const ProfilePage = (props) => {
                                 <input
                                     type="text"
                                     name="userName"
-                                    value={user.name}
                                 />
                             </label>
                             <label>
@@ -293,7 +292,6 @@ const ProfilePage = (props) => {
                                 <input
                                     type="email"
                                     name="userEmail"
-                                    value={user.email}
                                 />
                             </label>
                             <label>
@@ -305,7 +303,6 @@ const ProfilePage = (props) => {
                                 <input
                                     type="url"
                                     name="userImage"
-                                    value={user.profile_picture}
                                 />
                             </label>
                             <button type="submit">Send</button>
