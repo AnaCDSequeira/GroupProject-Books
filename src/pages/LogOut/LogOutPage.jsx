@@ -2,48 +2,54 @@ import End from "../../assets/TheEnd.png";
 import Book from "../../assets/Book.png";
 import styled from "styled-components";
 
-const BookContainer = styled.div`
-  display: inline-block;
-  justify-content: center;
-  width: 100%;
-`;
-
-const ImageTheEnd = styled.img`
-  position: absolute;
-  top: 330px;
-  right: 680px;
-  width: 20%;
-`;
-
-const ImageBook = styled.img`
-  width: 30%;
-  margin-left: 650px;
-`;
-
-const LogOutTitle = styled.h3`
-  position: absolute;
-  left: 740px;
-  bottom: 540px;
-  text-align: center;
-`;
 
 function LogOutPage(props) {
   const { setLoggedIn } = props;
 
   setLoggedIn(false);
   localStorage.clear();
-  localStorage.clear();
+
+
+  const StyledDiv = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap:30px;
+        min-height: 100vh;
+        
+
+       
+        divBook{
+            width:30%;
+            margin:0;
+            display:flex;
+            align-items:center;
+            justify-content: center;
+            position:relative;
+
+          p{
+            position: absolute;
+            left:60px;
+            top:120px;
+          }
+
+          #endImage{
+            position: absolute;
+            right:-70px;
+            width:80%;
+          }
+        }
+      `
 
   return (
     <>
-      <BookContainer>
-        <ImageTheEnd src={End} alt="TheEnd" />
-        <ImageBook src={Book} alt="Book" />
-        <LogOutTitle>
-          Came back any <br />
-          time soon! ❤️
-        </LogOutTitle>
-      </BookContainer>
+      <StyledDiv>
+          <divBook>
+            <img src={Book} alt={"book image"} style={{width:"100%"}}></img>
+            <img id="endImage" src={End} alt={"end image"}></img>
+            <p>Come back any <br />time soon! ❤️</p>
+          </divBook>
+      </StyledDiv>           
     </>
   );
 }

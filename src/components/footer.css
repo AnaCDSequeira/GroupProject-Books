@@ -7,16 +7,9 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    background-color: #fdf6e9;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-}
 
 .footer {
     position: relative;
-    width: 100vw;
     background: #3586ff;
     min-height: 50px;
     display: flex;

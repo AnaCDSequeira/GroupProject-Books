@@ -276,7 +276,8 @@ const ProfilePage = (props) => {
         <>
             <StyledDiv>
                 <profileDataContainerDiv>
-                    <img src={user?.profile_picture} />
+                    <img src={user
+                        .profile_picture} />
                     <userDataContainerDiv>
                         <h2>My Profile</h2>
                         <form onSubmit={handleSubmitUser}>
