@@ -50,6 +50,7 @@ const Login = (props) => {
         justify-content: center;
         align-items: center;
         gap:30px;
+        min-height: 710px; // ver medida do window
        
         divBook{
             width:500px;
