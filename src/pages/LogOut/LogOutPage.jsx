@@ -17,8 +17,7 @@ function LogOutPage(props) {
         gap:30px;
         min-height: 100vh;
         
-
-       
+        
         divBook{
             width:30%;
             margin:0;
