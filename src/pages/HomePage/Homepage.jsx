@@ -158,10 +158,10 @@ function BookShelf(props) {
               <ImageBanner src={bookMap[11]} alt="" />
             </Li>
             <Li>
-              <ImageBanner src={bookMap[18]} alt="" />
+              <ImageBanner src={bookMap[21]} alt="" />
             </Li>
             <Li>
-              <ImageBanner src={bookMap[19]} alt="" />
+              <ImageBanner src={bookMap[20]} alt="" />
             </Li>
           </Ul>
         </BookGrid>
