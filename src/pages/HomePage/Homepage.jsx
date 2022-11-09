@@ -8,9 +8,9 @@ const BooksContainer = styled.main`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 70px;
   padding-top: 100px;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-bottom: 200px;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 200px;
   align-items: center;
   cursor: pointer;
 `;
