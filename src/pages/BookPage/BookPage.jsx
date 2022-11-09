@@ -1,5 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import styled from "styled-components";
 
 const BookPage = (props) => {
     const { loggedIn } = props;
@@ -122,32 +123,117 @@ const BookPage = (props) => {
         );
     }
 
+    const MainDiv = styled.div`
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap:30px;
+        align-items: center;
+    
+        img {
+        height: auto;
+        width: 20%;
+        box-shadow: -2px 6px 19px 0px #4d4e52;
+        margin-top:10px;
+        margin-bottom: 10px;
+        transition: .3s ease;
+        &:hover {
+        transform: scale(1.03);
+    }
+}
+        div{
+         
+          display:inline-block;
+          flex-direction: column;
+          align-items:center;
+          justify-content: center;
+          margin:0;
+          width: 15%;
+
+        section {
+            padding-bottom: 50px;
+            padding-left: 10px;
+        }
+
+         button {
+            border-radius: 50%;
+            background: transparent;
+            outline: none;
+            color: rgb(0, 0, 0);
+            box-shadow: 0 2px #89ace4;
+            margin: 10px 0px;
+            padding: 6px;
+            border-radius: 30px;
+            text-align: center;
+            cursor: pointer;
+                
+                &:hover {
+                    background: linear-gradient(
+                        -45deg,
+                        #ffffff,
+                        rgb(137, 172, 228),
+                        rgb(253, 246, 233)
+                    );
+                    animation: gradient 3s ease infinite;
+                    background-size: 400% 400%;
+                }
+                &:active {
+                    box-shadow: 0 3px #1a3562;
+                    transform: translateY(2px);
+                }
+                @keyframes gradient {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 50%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+    }
+    }
+
+    .BookYear{
+        font-size: 14px;
+    }
+        }
+`;
+
     return (
         <>
-            <h1>BookPage</h1>
-            <img src={bookData.book_cover} alt="" />
-            <div>
-                <h2>{bookData.id}</h2>
-                <p>{bookData.description}</p>
-                <h2>{bookData.year}</h2>
-            </div>
-            <button
-                onClick={handleDeleteBook}
-                disabled={
-                    !loggedIn.isLoggedIn || userData.email !== loggedIn.email
-                }
-            >
-                Delete Book
-            </button>
-            <button
-                onClick={handleShowEditFormBook}
-                disabled={
-                    !loggedIn.isLoggedIn || userData.email !== loggedIn.email
-                }
-            >
-                Edit Book
-            </button>
-            {editFormBook}
+            <MainDiv>
+              
+                {/* <h1>BookPage</h1> */}
+                <img src={bookData.book_cover} alt={"Book Cover"} />
+                <div>
+                    <section>
+                        <h2>{bookData.title}</h2>
+                        <p>by {bookData.description}</p>
+                        <h2 className="BookYear">{bookData.year}</h2>
+                    </section>
+                    <button
+                        onClick={handleDeleteBook}
+                        disabled={
+                            !loggedIn.isLoggedIn || userData.email !== loggedIn.email
+                        } style = {{margin:"5px"}}
+                    >
+                        Delete Book
+                    </button>
+                    <button
+                        onClick={handleShowEditFormBook}
+                        disabled={
+                            !loggedIn.isLoggedIn || userData.email !== loggedIn.email
+                        } style = {{margin:"5px"}}
+                    >
+                        Edit Book
+                    </button>
+                    {editFormBook}
+
+                </div>
+            </MainDiv>
         </>
     );
 };
