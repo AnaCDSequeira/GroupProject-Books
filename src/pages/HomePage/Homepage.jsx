@@ -10,6 +10,7 @@ const BooksContainer = styled.main`
   padding-top: 100px;
   margin-left: 150px;
   margin-right: 150px;
+  margin-bottom: 200px;
   align-items: center;
   cursor: pointer;
 `;
