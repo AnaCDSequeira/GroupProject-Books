@@ -60,7 +60,7 @@ const Footer = () => {
             </a>
           </li>
         </ul>
-        <p>&copy;2021 Nadine Coelho | All Rights Reserved</p>
+        <p>&copy;2022 | All Rights Reserved</p>
       </footer>
       <script
         type="module"

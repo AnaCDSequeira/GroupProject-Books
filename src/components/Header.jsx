@@ -15,7 +15,6 @@ const NavBar = styled.nav`
     rgba(53, 134, 255, 1) 100%
   );
   color: #1e1b1b;
-  margin-bottom: 30px;
   width: 100%;
 `;
 
@@ -24,9 +23,11 @@ const DivMenu = styled.div`
   justify-content: flex-end;
   gap: 40px;
   margin-right: 30px;
+  margin-top: -50px;
 `;
 const DivTitle = styled.div`
   margin-left: 30px;
+  margin-top: -50px;
 `;
 
 const HeaderLink = styled(Link)`
