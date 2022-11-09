@@ -34,9 +34,11 @@ const Login = (props) => {
             if (json.message === "OK") {
                 alert(`Login sucessefully! Welcome ${json.data.name}`);
                 localStorage.setItem(json.data.email, json.data.token);
+                localStorage.setItem("profile_picture",json.data.profile_picture)
                 setLoggedIn({ isLoggedIn: true, email: json.data.email });
                 const direct = () => navigate("/");
                 direct();
+                console.log(json)
             } else {
                 alert(json.errors);
             }
