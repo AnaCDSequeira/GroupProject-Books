@@ -1,17 +1,24 @@
 import styled from "styled-components";
 import { useNavigate, Link, useLocation } from "react-router-dom";
+import Logo from "../assets/Logo.png";
 
 const NavBar = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  height: 150px;
-  background-color: #89ace4;
-  color: white;
+  height: 250px;
+  background: rgb(253, 246, 233);
+  background: linear-gradient(
+    0deg,
+    rgba(253, 246, 233, 1) 11%,
+    rgba(53, 134, 255, 1) 100%
+  );
+  color: #1e1b1b;
   margin-bottom: 30px;
   width: 100%;
 `;
+
 const DivMenu = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -38,7 +45,7 @@ const Header = (props) => {
     <header>
       <NavBar>
         <DivTitle>
-          <h1>BookStore</h1>
+          <img src={Logo} alt="" />
         </DivTitle>
         <DivMenu>
           {location.pathname !== "/" ? (

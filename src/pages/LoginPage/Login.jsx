@@ -19,7 +19,7 @@ const Login = (props) => {
         {
           method: "POST",
           headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
           },
           body: userData,
           redirect: "follow",
@@ -35,14 +35,12 @@ const Login = (props) => {
         setLoggedIn({ isLoggedIn: true, email: json.data.email });
         const direct = () => navigate("/");
         direct();
-
       } else {
         alert(json.errors);
       }
     }
-    
+
     loginUser();
-    
   }
 
   return (
