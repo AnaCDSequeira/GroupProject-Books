@@ -39,7 +39,7 @@ const Register = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} style={{minHeight:"100vh"}}>
                 <label>
                     Name
                     <input type="text" name="userName" required></input>
