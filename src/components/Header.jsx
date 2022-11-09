@@ -7,7 +7,7 @@ const NavBar = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  height: 250px;
+  height: 230px;
   background: rgb(253, 246, 233);
   background: linear-gradient(
     0deg,

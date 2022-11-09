@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Book from "../../assets/Book.jpg";
+import Book from "../../assets/Book.png";
 
 const Login = (props) => {
     const { loggedIn, setLoggedIn } = props;
@@ -47,18 +47,31 @@ const Login = (props) => {
 
     const StyledDiv = styled.div`
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        gap:30px;
         align-items: center;
+        gap:30px;
        
+        divBook{
+            width:500px;
+            margin:0;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
 
-        div{
+          p{
+            position: relative;
+            bottom: 390px;
+            left:-110px;
+          }
+        }
+
+        divForm{
           display:flex;
           flex-direction: column;
           align-items:center;
           justify-content: center;
-          margin:0;
+          margin-bottom:100px;
 
         h2 {
           margin: 20px 0;
@@ -143,8 +156,11 @@ const Login = (props) => {
     return (
         <>
             <StyledDiv>
-              <img src={Book} alt={"book image"} style={{width:"30%"}} ></img>
-              <div>
+              <divBook>
+              <img src={Book} alt={"book image"} style={{width:"100%"}}></img>
+              <p>Welcome back to our<br></br> page! <br></br> <br></br>Please login 😁!</p>
+              </divBook>
+              <divForm>
                 <h2>Login</h2>
                 <form onSubmit={handleSubmit}>
                     <label>
@@ -187,7 +203,7 @@ const Login = (props) => {
                         
                     </div>
                 </bottomDiv>
-                </div>
+                </divForm>
             </StyledDiv>
         </>
     );
