@@ -15,7 +15,8 @@ function LogOutPage(props) {
         justify-content: center;
         align-items: center;
         gap:30px;
-        min-height: 100vh;
+        min-height: 70vh;
+        margin-top:-50px;
         
         
         divBook{

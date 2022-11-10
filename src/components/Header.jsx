@@ -34,6 +34,12 @@ const DivTitle = styled.div`
 const HeaderLink = styled(Link)`
     text-decoration: none;
     color: white;
+    border-radius: 25px;
+    padding: 10px;
+    &:hover {
+        transform: scale(1.1);
+        background-color: #3586ff;
+    }
 `;
 
 const Header = (props) => {

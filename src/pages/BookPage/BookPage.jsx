@@ -125,19 +125,18 @@ const BookPage = (props) => {
 
     const MainDiv = styled.div`
         width: 100%;
-        margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: center;
         gap:30px;
         align-items: center;
+        min-height:80vh;
+        margin-top:-100px;
     
         img {
         height: auto;
-        width: 20%;
+        width: 15%;
         box-shadow: -2px 6px 19px 0px #4d4e52;
-        margin-top:10px;
-        margin-bottom: 10px;
         transition: .3s ease;
         &:hover {
         transform: scale(1.03);
@@ -153,7 +152,7 @@ const BookPage = (props) => {
           width: 15%;
 
         section {
-            padding-bottom: 50px;
+            padding-bottom: 40px;
             padding-left: 10px;
         }
 

@@ -72,7 +72,6 @@ const ProfilePage = (props) => {
 
         updateUser();
 
-        console.log(userDetails);
     }
 
     function handleSubmitBook(e) {
@@ -84,7 +83,7 @@ const ProfilePage = (props) => {
             e.target.bookDescription.value,
             e.target.bookCover.value,
         ];
-        console.log(bookDetails);
+       
 
         const myHeaders = new Headers();
         myHeaders.append("Authorization", localStorage.getItem(loggedIn.email));
@@ -131,6 +130,7 @@ const ProfilePage = (props) => {
         justify-content: center;
         margin-bottom: 200px;
         gap: 200px;
+        margin-top:42px;
 
         profileDataContainerDiv {
             display: flex;
