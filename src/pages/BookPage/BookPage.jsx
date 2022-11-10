@@ -154,6 +154,12 @@ transform: scale(1.03);
                 padding-bottom: 40px;
                 padding-left: 10px;
                 width: 30%;
+                h2 {
+                    margin: 20px 0;
+                    text-transform: uppercase;
+                    color: #0b0a28;
+  letter-spacing: 1.5px;
+                }
             }
 
             button {
@@ -206,9 +212,6 @@ transform: scale(1.03);
                 flex-direction: column;
                 margin-right: 100px;
 
-                h2 {
-                    margin: 20px 0;
-                }
                 form {
                     display: flex;
                     flex-direction: column;
@@ -276,7 +279,7 @@ transform: scale(1.03);
                     <img src={bookData.book_cover} alt={"Book Cover"} />
                     <section>
                         <h2>{bookData.title}</h2>
-                        <p>by {bookData.description}</p>
+                        <p>{bookData.description}</p>
                         <h2 className="BookYear">{bookData.year}</h2>
                     </section>
                     {!showForm ? (
