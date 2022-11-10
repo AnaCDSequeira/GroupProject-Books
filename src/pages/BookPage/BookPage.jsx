@@ -94,7 +94,7 @@ const BookPage = (props) => {
     let editFormBook;
     if (showForm) {
         editFormBook = (
-            <div>
+            <newBookContainerDiv>
                 <form onSubmit={handleEditBook}>
                     <label>
                         Title
@@ -105,8 +105,9 @@ const BookPage = (props) => {
                         <input type="text" name="year" required />
                     </label>
                     <label>
-                        Description
-                        <textarea
+                        Author
+                        <input
+                            type="text"
                             rows="8"
                             cols="50"
                             name="description"
@@ -119,55 +120,54 @@ const BookPage = (props) => {
                     </label>
                     <button>Update Book</button>
                 </form>
-            </div>
+            </newBookContainerDiv>
         );
     }
 
     const MainDiv = styled.div`
         width: 100%;
         display: flex;
-        flex-direction: row;
         justify-content: center;
-        gap:30px;
         align-items: center;
-        min-height:80vh;
-        margin-top:-100px;
-    
-        img {
-        height: auto;
-        width: 15%;
-        box-shadow: -2px 6px 19px 0px #4d4e52;
-        transition: .3s ease;
-        &:hover {
-        transform: scale(1.03);
-    }
-}
-        div{
-         
-          display:inline-block;
-          flex-direction: column;
-          align-items:center;
-          justify-content: center;
-          margin:0;
-          width: 15%;
+        min-height: 80vh;
+        margin-top: -100px;
 
-        section {
-            padding-bottom: 40px;
-            padding-left: 10px;
-        }
+        div {
+            display: flex;
+            align-items: center;
+            gap: 30px;
 
-         button {
-            border-radius: 50%;
-            background: transparent;
-            outline: none;
-            color: rgb(0, 0, 0);
-            box-shadow: 0 2px #89ace4;
-            margin: 10px 0px;
-            padding: 6px;
-            border-radius: 30px;
-            text-align: center;
-            cursor: pointer;
-                
+            img {
+                width: 300px;
+                height: auto;
+                box-shadow:-2px 6px 19px 0px #4d4e52;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                transition: .3s ease;
+                &:hover{
+transform: scale(1.03);
+                }
+            
+            }
+
+            section {
+                padding-bottom: 40px;
+                padding-left: 10px;
+                width: 30%;
+            }
+
+            button {
+                border-radius: 50%;
+                background: transparent;
+                outline: none;
+                color: rgb(0, 0, 0);
+                box-shadow: 0 2px #89ace4;
+                margin: 10px 0px;
+                padding: 6px;
+                border-radius: 30px;
+                text-align: center;
+                cursor: pointer;
+
                 &:hover {
                     background: linear-gradient(
                         -45deg,
@@ -192,45 +192,119 @@ const BookPage = (props) => {
                     100% {
                         background-position: 0% 50%;
                     }
-    }
-    }
+                }
+            }
 
-    .BookYear{
-        font-size: 14px;
-    }
+            .BookYear {
+                font-size: 14px;
+            }
+
+            newBookContainerDiv {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                margin-right: 100px;
+
+                h2 {
+                    margin: 20px 0;
+                }
+                form {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 30px;
+
+                    label {
+                        width: 100%;
+                        input {
+                            width: 100%;
+                            border: none;
+                            border-bottom: 1px solid;
+                            background: rgb(253, 246, 233);
+                        }
+                    }
+
+                    button {
+                        border-radius: 50%;
+                        background: transparent;
+                        outline: none;
+                        color: rgb(0, 0, 0);
+                        box-shadow: 0 5px #89ace4;
+                        margin: 10px 0px;
+                        padding: 6px;
+                        border-radius: 30px;
+                        width: 100%;
+                        cursor: pointer;
+
+                        &:hover {
+                            background: linear-gradient(
+                                -45deg,
+                                #ffffff,
+                                rgb(137, 172, 228),
+                                rgb(253, 246, 233)
+                            );
+                            animation: gradient 3s ease infinite;
+                            background-size: 400% 400%;
+                        }
+                        &:active {
+                            box-shadow: 0 3px #1a3562;
+                            transform: translateY(2px);
+                        }
+                        @keyframes gradient {
+                            0% {
+                                background-position: 0% 50%;
+                            }
+                            50% {
+                                background-position: 100% 50%;
+                            }
+                            100% {
+                                background-position: 0% 50%;
+                            }
+                        }
+                    }
+                }
+            }
         }
-`;
+    `;
 
     return (
         <>
             <MainDiv>
-              
                 {/* <h1>BookPage</h1> */}
-                <img src={bookData.book_cover} alt={"Book Cover"} />
                 <div>
+                    <img src={bookData.book_cover} alt={"Book Cover"} />
                     <section>
                         <h2>{bookData.title}</h2>
                         <p>by {bookData.description}</p>
                         <h2 className="BookYear">{bookData.year}</h2>
                     </section>
-                    <button
-                        onClick={handleDeleteBook}
-                        disabled={
-                            !loggedIn.isLoggedIn || userData.email !== loggedIn.email
-                        } style = {{margin:"5px"}}
-                    >
-                        Delete Book
-                    </button>
-                    <button
-                        onClick={handleShowEditFormBook}
-                        disabled={
-                            !loggedIn.isLoggedIn || userData.email !== loggedIn.email
-                        } style = {{margin:"5px"}}
-                    >
-                        Edit Book
-                    </button>
-                    {editFormBook}
+                    {!showForm ? (
+                        <>
+                            <button
+                                onClick={handleDeleteBook}
+                                disabled={
+                                    !loggedIn.isLoggedIn ||
+                                    userData.email !== loggedIn.email
+                                }
+                                style={{ margin: "5px" }}
+                            >
+                                Delete Book
+                            </button>
+                            <button
+                                onClick={handleShowEditFormBook}
+                                disabled={
+                                    !loggedIn.isLoggedIn ||
+                                    userData.email !== loggedIn.email
+                                }
+                                style={{ margin: "5px" }}
+                            >
+                                Edit Book
+                            </button>
+                        </>
+                    ) : null}
 
+                    {editFormBook}
                 </div>
             </MainDiv>
         </>
